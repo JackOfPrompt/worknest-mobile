@@ -1,43 +1,46 @@
 {
   "expo": {
     "name": "WorkNest",
-    "slug": "worknest-mobile",
+    "slug": "worknest-hrms",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "worknest-mobile",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0A1628"
+      "backgroundColor": "#1B4FE8"
     },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.lakshithatech.worknest",
+      "infoPlist": {
+        "NSCameraUsageDescription": "WorkNest needs camera to capture your attendance selfie.",
+        "NSLocationWhenInUseUsageDescription": "WorkNest needs location to verify you are at the office.",
+        "NSFaceIDUsageDescription": "Use Face ID for quick login to WorkNest."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#0A1628"
-      }
-    },
-    "web": {
-      "favicon": "./assets/images/icon.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B4FE8"
+      },
+      "package": "com.lakshithatech.worknest",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.VIBRATE"
+      ]
     },
     "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://replit.com/"
-        }
-      ],
-      "expo-font",
-      "expo-web-browser"
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    }
+      "expo-camera",
+      "expo-location",
+      "expo-secure-store",
+      "expo-local-authentication",
+      ["expo-notifications", { "icon": "./assets/icon.png", "color": "#1B4FE8" }]
+    ]
   }
 }
